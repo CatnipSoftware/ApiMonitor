@@ -1,0 +1,8 @@
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\bin\Debug\netcoreapp2.0\Monitor.Domain.deps.json
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\bin\Debug\netcoreapp2.0\Monitor.Domain.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.csproj.CoreCompileInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.AssemblyInfoInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.AssemblyInfo.cs
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\bin\Debug\netcoreapp2.0\Monitor.Domain.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.pdb

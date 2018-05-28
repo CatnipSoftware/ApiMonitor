@@ -1,0 +1,29 @@
+﻿@model List<LogGridVm>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            @*<th>Application</th>
+            <th>Category</th>*@
+            <th>Uri</th>
+            <th>Request Time</th>
+            <th>Duration</th>
+            <th>Response Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            @*<td>@item.Application.Name</td>
+            <td>@item.Category?.Name</td>*@
+            <td>@item.RequestUri</td>
+            <td>@item.RequestTimestamp</td>
+            <td>@item.Duration</td>
+            <td>@item.ResponseCode</td>
+        </tr>
+        }
+    </tbody>
+</table>

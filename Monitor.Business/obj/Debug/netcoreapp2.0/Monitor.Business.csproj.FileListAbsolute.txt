@@ -1,0 +1,12 @@
+C:\Users\serda\Desktop\Monitor\Monitor.Business\bin\Debug\netcoreapp2.0\Monitor.Business.deps.json
+C:\Users\serda\Desktop\Monitor\Monitor.Business\bin\Debug\netcoreapp2.0\Monitor.Business.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Business\bin\Debug\netcoreapp2.0\Monitor.Business.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Business\bin\Debug\netcoreapp2.0\Monitor.Domain.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Business\bin\Debug\netcoreapp2.0\Monitor.Domain.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.csprojResolveAssemblyReference.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.csproj.CoreCompileInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.AssemblyInfoInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.AssemblyInfo.cs
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.csproj.CopyComplete
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Business\obj\Debug\netcoreapp2.0\Monitor.Business.pdb

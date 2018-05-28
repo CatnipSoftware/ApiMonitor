@@ -1,0 +1,43 @@
+﻿@model HomeVm
+
+@{ 
+    var applicationList = new SelectList(Model.Applications, "Id", "Name");
+    var categoryList = new SelectList(Model.Categories, "Id", "Name");
+    var timeList = new SelectList(Model.Times, "Id", "Name");
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.DropDownList("ApplicationId", applicationList, "Select Application", new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        @Html.DropDownList("CategoryId", categoryList, "Select Category", new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        @Html.DropDownList("TimeId", timeList, "Select Time Range", new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        <input id="btnShow" type="button" value="Show" class="btn btn-default" />
+    </div>
+</div>
+
+<div id="grid">
+
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#btnShow").click(function () {
+            var data = {
+                applicationId: $("#ApplicationId").val(),
+                categoryId: $("#CategoryId").val(),
+                timeId: $("#TimeId").val()
+            };
+
+            $.post("/Home/Grid", data, function (html) {
+                $("#grid").html(html);
+            });
+        });
+    </script>
+}
