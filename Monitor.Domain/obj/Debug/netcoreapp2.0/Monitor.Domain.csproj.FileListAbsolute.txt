@@ -6,3 +6,4 @@ C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Do
 C:\Users\serda\Desktop\Monitor\Monitor.Domain\bin\Debug\netcoreapp2.0\Monitor.Domain.pdb
 C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.dll
 C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Domain\obj\Debug\netcoreapp2.0\Monitor.Domain.csprojResolveAssemblyReference.cache

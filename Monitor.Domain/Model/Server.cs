@@ -2,9 +2,9 @@
 
 namespace Monitor.Domain.Model
 {
-    public class Category
+    public class Server
     {
-        public Category()
+        public Server()
         {
             this.Logs = new List<Log>();
         }

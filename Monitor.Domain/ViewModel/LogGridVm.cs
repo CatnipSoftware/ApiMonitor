@@ -9,12 +9,7 @@ namespace Monitor.Domain.ViewModel
         public ApplicationVm Application { get; set; }
         public string RequestUri { get; set; }
         public DateTime RequestTimestamp { get; set; }
-        public DateTime ResponseTimestamp { get; set; }
         public int ResponseCode { get; set; }
-
-        public double Duration
-        {
-            get { return (ResponseTimestamp - RequestTimestamp).TotalMilliseconds; }
-        }
+        public long Duration { get; set; }
     }
 }

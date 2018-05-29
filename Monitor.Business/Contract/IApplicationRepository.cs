@@ -6,5 +6,7 @@ namespace Monitor.Business.Contract
     public interface IApplicationRepository
     {
         List<ApplicationVm> List();
+        ApplicationVm FindByCode(string code);
+        ApplicationVm Create(ApplicationVm applicationVm);
     }
 }

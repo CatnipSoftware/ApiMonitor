@@ -7,6 +7,8 @@ using Monitor.Business.Contract;
 using Monitor.Business.Module;
 using Monitor.Domain.Model;
 using Monitor.Domain.Settings;
+using Monitor.Presentation.Contract;
+using Monitor.Presentation.Module;
 
 namespace Monitor
 {
@@ -27,11 +29,20 @@ namespace Monitor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddTransient<IApplicationRepository, ApplicationRepository>()
+                    
+            services.AddTransient<IApiRepository, ApiRepository>()
+                    .AddTransient<IApplicationRepository, ApplicationRepository>()
                     .AddTransient<ICategoryRepository, CategoryRepository>()
                     .AddTransient<ILogRepository, LogRepository>()
+                    .AddTransient<IServerRepository, ServerRepository>()
                     .AddTransient<ITimeRepository, TimeRepository>()
+                    .AddTransient<ITransactionRepository, TransactionRepository>()
+
+                    .AddTransient<IApiPresentation, ApiPresentation>()
+                    .AddTransient<IApplicationPresentation, ApplicationPresentation>()
+                    .AddTransient<ILogPresentation, LogPresentation>()
+                    .AddTransient<IServerPresentation, ServerPresentation>()
+                    .AddTransient<ITransactionPresentation, TransactionPresentation>()
                     ;
 
             services.AddDbContext<MonitorContext>(options => options.UseSqlServer(_appSettings.ConnectionString));

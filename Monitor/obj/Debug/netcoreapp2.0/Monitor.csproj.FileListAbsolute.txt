@@ -14,3 +14,5 @@ C:\Users\serda\Desktop\Monitor\Monitor\obj\Debug\netcoreapp2.0\Monitor.AssemblyI
 C:\Users\serda\Desktop\Monitor\Monitor\obj\Debug\netcoreapp2.0\Monitor.csproj.CopyComplete
 C:\Users\serda\Desktop\Monitor\Monitor\obj\Debug\netcoreapp2.0\Monitor.dll
 C:\Users\serda\Desktop\Monitor\Monitor\obj\Debug\netcoreapp2.0\Monitor.pdb
+C:\Users\serda\Desktop\Monitor\Monitor\bin\Debug\netcoreapp2.0\Monitor.Presentation.dll
+C:\Users\serda\Desktop\Monitor\Monitor\bin\Debug\netcoreapp2.0\Monitor.Presentation.pdb

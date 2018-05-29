@@ -12,11 +12,13 @@ namespace Monitor.Business.Module
     {
         private readonly MonitorContext _context;
         private readonly ITimeRepository _timeRepository;
+        private readonly IApplicationRepository _applicationRepository;
 
-        public LogRepository(MonitorContext context, ITimeRepository timeRepository)
+        public LogRepository(MonitorContext context, ITimeRepository timeRepository, IApplicationRepository applicationRepository)
         {
             _context = context;
             _timeRepository = timeRepository;
+            _applicationRepository = applicationRepository;
         }
 
         public List<LogGridVm> List(int? applicationId, int? categoryId, int? timeId)
@@ -53,10 +55,15 @@ namespace Monitor.Business.Module
                     },
                     RequestUri = x.RequestUri,
                     RequestTimestamp = x.RequestTimestamp,
-                    ResponseTimestamp = x.ResponseTimestamp,
-                    ResponseCode = x.ResponseStatusCode
+                    ResponseCode = x.ResponseStatusCode,
+                    Duration = x.Duration
                 })
                 .ToList();
+        }
+        public void Create(Log log)
+        {
+            _context.Set<Log>().Add(log);
+            _context.SaveChanges();
         }
     }
 }

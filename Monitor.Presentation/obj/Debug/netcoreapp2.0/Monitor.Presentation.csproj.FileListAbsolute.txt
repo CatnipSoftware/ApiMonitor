@@ -1,0 +1,14 @@
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Presentation.deps.json
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Presentation.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Presentation.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Business.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Domain.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Business.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\bin\Debug\netcoreapp2.0\Monitor.Domain.pdb
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.csprojResolveAssemblyReference.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.AssemblyInfoInputs.cache
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.AssemblyInfo.cs
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.csproj.CopyComplete
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.dll
+C:\Users\serda\Desktop\Monitor\Monitor.Presentation\obj\Debug\netcoreapp2.0\Monitor.Presentation.pdb

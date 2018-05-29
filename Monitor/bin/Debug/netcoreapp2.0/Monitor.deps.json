@@ -27,7 +27,8 @@
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "Monitor.Business": "1.0.0",
-          "Monitor.Domain": "1.0.0"
+          "Monitor.Domain": "1.0.0",
+          "Monitor.Presentation": "1.0.0"
         },
         "runtime": {
           "Monitor.dll": {}
@@ -4077,6 +4078,17 @@
           "Monitor.Domain.dll": {}
         }
       },
+      "Monitor.Presentation/1.0.0": {
+        "dependencies": {
+          "Monitor.Business": "1.0.0"
+        },
+        "runtime": {
+          "Monitor.Presentation.dll": {}
+        },
+        "compile": {
+          "Monitor.Presentation.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6395,6 +6407,11 @@
       "sha512": ""
     },
     "Monitor.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Monitor.Presentation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

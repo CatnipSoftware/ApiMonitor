@@ -11,7 +11,10 @@ namespace Monitor.Controllers
         private readonly ILogRepository _logRepository;
         private readonly ITimeRepository _timeRepository;
 
-        public HomeController(IApplicationRepository applicationRepository, ICategoryRepository categoryRepository, ILogRepository logRepository, ITimeRepository timeRepository)
+        public HomeController(IApplicationRepository applicationRepository
+            , ICategoryRepository categoryRepository
+            , ILogRepository logRepository
+            , ITimeRepository timeRepository)
         {
             _applicationRepository = applicationRepository;
             _categoryRepository = categoryRepository;

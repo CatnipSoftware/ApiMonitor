@@ -5054,6 +5054,19 @@
         "runtime": {
           "bin/placeholder/Monitor.Domain.dll": {}
         }
+      },
+      "Monitor.Presentation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Monitor.Business": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Monitor.Presentation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Monitor.Presentation.dll": {}
+        }
       }
     }
   },
@@ -13156,6 +13169,11 @@
       "type": "project",
       "path": "../Monitor.Domain/Monitor.Domain.csproj",
       "msbuildProject": "../Monitor.Domain/Monitor.Domain.csproj"
+    },
+    "Monitor.Presentation/1.0.0": {
+      "type": "project",
+      "path": "../Monitor.Presentation/Monitor.Presentation.csproj",
+      "msbuildProject": "../Monitor.Presentation/Monitor.Presentation.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13164,7 +13182,8 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
       "Monitor.Business >= 1.0.0",
-      "Monitor.Domain >= 1.0.0"
+      "Monitor.Domain >= 1.0.0",
+      "Monitor.Presentation >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -13205,6 +13224,9 @@
             },
             "C:\\Users\\serda\\Desktop\\Monitor\\Monitor.Domain\\Monitor.Domain.csproj": {
               "projectPath": "C:\\Users\\serda\\Desktop\\Monitor\\Monitor.Domain\\Monitor.Domain.csproj"
+            },
+            "C:\\Users\\serda\\Desktop\\Monitor\\Monitor.Presentation\\Monitor.Presentation.csproj": {
+              "projectPath": "C:\\Users\\serda\\Desktop\\Monitor\\Monitor.Presentation\\Monitor.Presentation.csproj"
             }
           }
         }

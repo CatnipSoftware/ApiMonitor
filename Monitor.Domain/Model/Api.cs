@@ -2,15 +2,16 @@
 
 namespace Monitor.Domain.Model
 {
-    public class Category
+    public class Api
     {
-        public Category()
+        public Api()
         {
             this.Logs = new List<Log>();
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string HttpMethod { get; set; }
+        public string Uri { get; set; }
 
         public virtual ICollection<Log> Logs { get; set; }
     }
