@@ -10,6 +10,7 @@ namespace Monitor.Domain.ViewModel
         public string Server { get; set; }
         public string RequestIpAddress { get; set; }
         public string RequestContentType { get; set; }
+        public string RequestContentBody { get; set; }
         public string RequestUri { get; set; }
         public string RequestMethod { get; set; }
         public string RequestHeaders { get; set; }

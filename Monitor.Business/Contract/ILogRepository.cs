@@ -6,7 +6,8 @@ namespace Monitor.Business.Contract
 {
     public interface ILogRepository
     {
-        List<LogGridVm> List(int? applicationId, int? categoryId, int? timeId);
+        List<LogGridVm> List(LogGridInputVm logGridInputVm);
+        LogDetailVm Get(int id);
         void Create(Log log);
     }
 }

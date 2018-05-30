@@ -4,6 +4,7 @@ using Monitor.Presentation.Contract;
 
 namespace Monitor.Controllers
 {
+    [Route("Logs")]
     public class LogController : Controller
     {
         private readonly ILogPresentation _logPresentation;
@@ -14,7 +15,6 @@ namespace Monitor.Controllers
         }
 
         [HttpPost]
-        [Route("Logs")]
         public IActionResult Create([FromBody] LogVm logVm)
         {
             _logPresentation.Create(logVm);

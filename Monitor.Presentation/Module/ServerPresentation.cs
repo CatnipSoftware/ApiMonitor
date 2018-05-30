@@ -1,4 +1,5 @@
-﻿using Monitor.Business.Contract;
+﻿using System.Collections.Generic;
+using Monitor.Business.Contract;
 using Monitor.Domain.ViewModel;
 using Monitor.Presentation.Contract;
 
@@ -12,6 +13,8 @@ namespace Monitor.Presentation.Module
         {
             _serverRepository = serverRepository;
         }
+
+        public List<ServerVm> List() => _serverRepository.List();
 
         public ServerVm FindByName(string name)
         {

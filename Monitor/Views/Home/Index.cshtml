@@ -2,21 +2,26 @@
 
 @{ 
     var applicationList = new SelectList(Model.Applications, "Id", "Name");
-    var categoryList = new SelectList(Model.Categories, "Id", "Name");
+    var serverList = new SelectList(Model.Servers, "Id", "Name");
     var timeList = new SelectList(Model.Times, "Id", "Name");
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         @Html.DropDownList("ApplicationId", applicationList, "Select Application", new { @class = "form-control" })
     </div>
-    <div class="col-md-3">
-        @Html.DropDownList("CategoryId", categoryList, "Select Category", new { @class = "form-control" })
+    <div class="col-md-4">
+        <select name="ApiId" class="form-control" id="ApiId">
+            <option value="">Select Api</option>
+        </select>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
+        @Html.DropDownList("ServerId", serverList, "Select Server", new { @class = "form-control" })
+    </div>
+    <div class="col-md-2">
         @Html.DropDownList("TimeId", timeList, "Select Time Range", new { @class = "form-control" })
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <input id="btnShow" type="button" value="Show" class="btn btn-default" />
     </div>
 </div>
@@ -28,15 +33,39 @@
 @section Scripts
 {
     <script type="text/javascript">
+        $.postJSON = function (url, data, success, error) {
+            return jQuery.ajax({
+                'type': 'POST',
+                'url': url,
+                'contentType': 'application/json; charset=utf-8',
+                'data': data,
+                'success': success,
+                'error': error
+            });
+        };
+
         $("#btnShow").click(function () {
             var data = {
-                applicationId: $("#ApplicationId").val(),
-                categoryId: $("#CategoryId").val(),
-                timeId: $("#TimeId").val()
+                ApplicationId: $("#ApplicationId").val(),
+                ApiId: $("#ApiId").val(),
+                ServerId: $("#ServerId").val(),
+                TimeId: $("#TimeId").val()
             };
 
-            $.post("/Home/Grid", data, function (html) {
+            $.postJSON("/Home/Grid", JSON.stringify(data), function (html) {
                 $("#grid").html(html);
+            });
+        });
+
+        $("#ApplicationId").change(function () {
+            var applicationId = $("#ApplicationId").val();
+
+            $("#ApiId").html("<option value=''>Select Api</option>");
+
+            $.getJSON("/Apis/?applicationId=" + applicationId, function (data) {
+                $.each(data, function (key, val) {
+                    $("<option value='" + val.id + "'>" + val.name + "</option>").appendTo("#ApiId");
+                });
             });
         });
     </script>

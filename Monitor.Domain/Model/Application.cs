@@ -6,6 +6,7 @@ namespace Monitor.Domain.Model
     {
         public Application()
         {
+            this.Apis = new List<Api>();
             this.Logs = new List<Log>();
         }
 
@@ -13,6 +14,7 @@ namespace Monitor.Domain.Model
         public string Code { get; set; }
         public string Name { get; set; }
 
+        public virtual ICollection<Api> Apis { get; set; }
         public virtual ICollection<Log> Logs { get; set; }
     }
 }

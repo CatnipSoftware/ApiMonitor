@@ -1,6 +1,7 @@
 ﻿using Monitor.Business.Contract;
 using Monitor.Domain.ViewModel;
 using Monitor.Presentation.Contract;
+using System.Collections.Generic;
 
 namespace Monitor.Presentation.Module
 {
@@ -12,6 +13,8 @@ namespace Monitor.Presentation.Module
         {
             _applicationRepository = applicationRepository;
         }
+
+        public List<ApplicationVm> List() => _applicationRepository.List();
 
         public ApplicationVm FindByCode(string code)
         {

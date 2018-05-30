@@ -1,0 +1,90 @@
+﻿@model LogDetailVm
+
+<p>[@Model.Api.HttpMethod] @Model.RequestUri</p>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#summary">Summary</a></li>
+    <li><a data-toggle="tab" href="#request">Request</a></li>
+    <li><a data-toggle="tab" href="#response">Response</a></li>
+</ul>
+
+<div class="tab-content">
+    <br />
+    <div id="summary" class="tab-pane fade in active">
+        <div class="col-md-6">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td width="30%">Server</td>
+                    <td width="70%">@Model.Server.Name</td>
+                </tr>
+                <tr>
+                    <td>Application</td>
+                    <td>@Model.Application.Name</td>
+                </tr>
+                <tr>
+                    <td>Method</td>
+                    <td>@Model.Api.HttpMethod</td>
+                </tr>
+                <tr>
+                    <td>User</td>
+                    <td>@Model.AppUser</td>
+                </tr>
+                <tr>
+                    <td>Request Date</td>
+                    <td>@Model.RequestTimestamp.ToString()</td>
+                </tr>
+                <tr>
+                    <td>Ip Address</td>
+                    <td>@Model.RequestIpAddress</td>
+                </tr>
+                <tr>
+                    <td>Response Code</td>
+                    <td>@Model.ResponseStatusCode</td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td>@Model.Duration</td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <div id="request" class="tab-pane fade">
+        <div class="col-md-6">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td width="30%">Content-Type</td>
+                    <td width="70%">@Model.RequestContentType</td>
+                </tr>
+                <tr>
+                    <td>Headers</td>
+                    <td>@Model.RequestHeaders</td>
+                </tr>
+                <tr>
+                    <td>Body</td>
+                    <td>@Model.RequestContentBody</td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <div id="response" class="tab-pane fade">
+        <div class="col-md-6">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td width="30%">Content-Type</td>
+                    <td width="70%">@Model.ResponseContentType</td>
+                </tr>
+                <tr>
+                    <td>Headers</td>
+                    <td>@Model.ResponseHeaders</td>
+                </tr>
+                <tr>
+                    <td>Body</td>
+                    <td>@Model.ResponseContentBody</td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>

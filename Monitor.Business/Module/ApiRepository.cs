@@ -15,9 +15,10 @@ namespace Monitor.Business.Module
             _context = context;
         }
 
-        public List<ApiVm> List()
+        public List<ApiVm> List(int applicationId)
         {
             return _context.Set<Api>()
+                .Where(x => x.ApplicationId == applicationId)
                 .Select(x => new ApiVm
                 {
                     Id = x.Id,
@@ -27,10 +28,10 @@ namespace Monitor.Business.Module
                 .ToList();
         }
 
-        public ApiVm FindByUriAndHttpMethod(string uri, string httpMethod)
+        public ApiVm FindByUriAndHttpMethod(int applicationId, string uri, string httpMethod)
         {
             return _context.Set<Api>()
-                .Where(x => x.HttpMethod == httpMethod && x.Uri == uri)
+                .Where(x => x.ApplicationId == applicationId && x.HttpMethod == httpMethod && x.Uri == uri)
                 .Select(x => new ApiVm
                 {
                     Id = x.Id,

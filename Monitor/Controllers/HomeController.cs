@@ -7,27 +7,28 @@ namespace Monitor.Controllers
     public class HomeController : Controller
     {
         private readonly IApplicationRepository _applicationRepository;
-        private readonly ICategoryRepository _categoryRepository;
         private readonly ILogRepository _logRepository;
         private readonly ITimeRepository _timeRepository;
+        private readonly IServerRepository _serverRepository;
 
         public HomeController(IApplicationRepository applicationRepository
-            , ICategoryRepository categoryRepository
             , ILogRepository logRepository
-            , ITimeRepository timeRepository)
+            , ITimeRepository timeRepository
+            , IServerRepository serverRepository)
         {
             _applicationRepository = applicationRepository;
-            _categoryRepository = categoryRepository;
             _logRepository = logRepository;
             _timeRepository = timeRepository;
+            _serverRepository = serverRepository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var vm = new HomeVm
             {
                 Applications = _applicationRepository.List(),
-                Categories = _categoryRepository.List(),
+                Servers = _serverRepository.List(),
                 Times = _timeRepository.List()
             };
 
@@ -35,10 +36,17 @@ namespace Monitor.Controllers
         }
 
         [HttpPost]
-        public IActionResult Grid(int? applicationId, int? categoryId, int? timeId)
+        public IActionResult Grid([FromBody] LogGridInputVm logGridInputVm)
         {
-            var result = _logRepository.List(applicationId, categoryId, timeId);
+            var result = _logRepository.List(logGridInputVm);
             return PartialView(result);
+        }
+
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+            var result = _logRepository.Get(id);
+            return View(result);
         }
     }
 }

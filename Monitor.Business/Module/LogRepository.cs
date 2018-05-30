@@ -21,17 +21,18 @@ namespace Monitor.Business.Module
             _applicationRepository = applicationRepository;
         }
 
-        public List<LogGridVm> List(int? applicationId, int? categoryId, int? timeId)
+        public List<LogGridVm> List(LogGridInputVm logGridInputVm)
         {
             var query = _context.Set<Log>()
                 .Include(x => x.Category)
                 .Include(x => x.Application)
-                .Where(x => !applicationId.HasValue || x.ApplicationId == applicationId.Value)
-                .Where(x => !categoryId.HasValue || x.CategoryId == categoryId.Value);
+                .Where(x => !logGridInputVm.ApplicationId.HasValue || x.ApplicationId == logGridInputVm.ApplicationId.Value)
+                .Where(x => !logGridInputVm.ApiId.HasValue || x.ApiId == logGridInputVm.ApiId.Value)
+                .Where(x => !logGridInputVm.ServerId.HasValue || x.ServerId == logGridInputVm.ServerId.Value);
 
-            if (timeId.HasValue)
+            if (logGridInputVm.TimeId.HasValue)
             {
-                var time = _timeRepository.Get(timeId.Value);
+                var time = _timeRepository.Get(logGridInputVm.TimeId.Value);
                 var date = DateTime.UtcNow.AddMinutes(time.Duration * -1);
 
                 query = query.Where(x => x.RequestTimestamp > date);
@@ -41,18 +42,22 @@ namespace Monitor.Business.Module
                 .Select(x => new LogGridVm
                 {
                     Id = x.Id,
-                    Category = !x.CategoryId.HasValue
-                             ? null
-                             : new CategoryVm
-                             {
-                                 Id = x.Category.Id,
-                                 Name = x.Category.Name
-                             },
-                    Application = new ApplicationVm
-                    {
-                        Id = x.Application.Id,
-                        Name = x.Application.Name
-                    },
+                    //Application = new ApplicationVm
+                    //{
+                    //    Id = x.Application.Id,
+                    //    Name = x.Application.Name
+                    //},
+                    //Api = new ApiVm
+                    //{
+                    //    Id = x.Api.Id,
+                    //    HttpMethod = x.Api.HttpMethod,
+                    //    Uri = x.Api.Uri
+                    //},
+                    //Server = new ServerVm
+                    //{
+                    //    Id = x.Server.Id,
+                    //    Name = x.Server.Name
+                    //},
                     RequestUri = x.RequestUri,
                     RequestTimestamp = x.RequestTimestamp,
                     ResponseCode = x.ResponseStatusCode,
@@ -60,6 +65,65 @@ namespace Monitor.Business.Module
                 })
                 .ToList();
         }
+
+        public LogDetailVm Get(int id)
+        {
+            return _context.Set<Log>()
+                .Where(x => x.Id == id)
+                .Include(x => x.Application)
+                .Include(x => x.Api)
+                .Include(x => x.Server)
+                .Include(x => x.Transaction.Logs).ThenInclude(x => x.Api)
+                .Select(x => new LogDetailVm
+                {
+                    Id = x.Id,
+                    Application = new ApplicationVm
+                    {
+                        Id = x.Application.Id,
+                        Code = x.Application.Code,
+                        Name = x.Application.Name
+                    },
+                    Api = new ApiVm
+                    {
+                        Id = x.Api.Id,
+                        HttpMethod = x.Api.HttpMethod,
+                        Uri = x.Api.Uri
+                    },
+                    Server = new ServerVm
+                    {
+                        Id = x.Server.Id,
+                        Name = x.Server.Name
+                    },
+                    AppUser = x.AppUser,
+                    RequestIpAddress = x.RequestIpAddress,
+                    RequestContentType = x.RequestContentType,
+                    RequestContentBody = x.RequestContentBody,
+                    RequestHeaders = x.RequestHeaders,
+                    RequestUri = x.RequestUri,
+                    RequestTimestamp = x.RequestTimestamp,
+                    ResponseContentType = x.ResponseContentType,
+                    ResponseContentBody = x.ResponseContentBody,
+                    ResponseHeaders = x.ResponseHeaders,
+                    ResponseStatusCode = x.ResponseStatusCode,
+                    Duration = x.Duration,
+                    RelatedLogs = x.Transaction
+                                   .Logs
+                                   .Select(y => new LogDetailVm
+                                   {
+                                       Id = y.Id,
+                                       Api = new ApiVm
+                                       {
+                                           Id = y.Api.Id,
+                                           HttpMethod = y.Api.HttpMethod,
+                                           Uri = y.Api.Uri
+                                       },
+                                       RequestUri = y.RequestUri
+                                   })
+                                   .ToList()
+                })
+                .FirstOrDefault();
+        }
+
         public void Create(Log log)
         {
             _context.Set<Log>().Add(log);

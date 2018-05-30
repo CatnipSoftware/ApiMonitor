@@ -1,4 +1,5 @@
-﻿using Monitor.Business.Contract;
+﻿using System.Collections.Generic;
+using Monitor.Business.Contract;
 using Monitor.Domain.Model;
 using Monitor.Domain.ViewModel;
 using Monitor.Presentation.Contract;
@@ -28,8 +29,8 @@ namespace Monitor.Presentation.Module
 
         public void Create(LogVm logVm)
         {
-            var api = _apiPresentation.FindByUriAndHttpMethod(logVm.RequestUri, logVm.RequestMethod);
             var application = _applicationPresentation.FindByCode(logVm.Application);
+            var api = _apiPresentation.FindByUriAndHttpMethod(application.Id, logVm.RequestUri, logVm.RequestMethod);
             var server = _serverPresentation.FindByName(logVm.Server);
             var transaction = _transactionPresentation.FindByGuid(logVm.TransactionId);
 
@@ -42,6 +43,7 @@ namespace Monitor.Presentation.Module
                 AppUser = logVm.AppUser,
                 RequestIpAddress = logVm.RequestIpAddress,
                 RequestContentType = logVm.RequestContentType,
+                RequestContentBody = logVm.RequestContentBody,
                 RequestUri = logVm.RequestUri,
                 RequestHeaders = logVm.RequestHeaders,
                 RequestTimestamp = logVm.RequestTimestamp,
